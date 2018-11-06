@@ -1,3 +1,37 @@
-<p>
-  progress works!
-</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Progreso</h5>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [attr.ariaValuenow]="porcentaje" aria-valuemin="0" aria-valuemax="100" [style.width]="porcentaje + '%'"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-primary" type="button" (click)="cambiarValor(-5)"><i class="mdi mdi-minus"></i></button>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Ingresa tu valor" [(ngModel)]="porcentaje" name="porcentaje">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-primary" type="button" (click)="cambiarValor(+5)"><i class="mdi mdi-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                Texto 2
+            </div>
+        </div>
+    </div>
+</div>
