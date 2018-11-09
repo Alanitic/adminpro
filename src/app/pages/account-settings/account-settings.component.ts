@@ -29,7 +29,19 @@ export class AccountSettingsComponent implements OnInit {
     link.classList.add('working');
   }
 
+  colocarCheck() {
+    let selectores: any = document.getElementsByClassName('selector');
+    let tema = this._ajustes.ajustes.tema;
+    for ( let ref of selectores ) {
+      if ( ref.getAttribute('data-theme') === tema) {
+        ref.classList.add('working');
+        break;
+      }
+    }
+  }
+
   ngOnInit() {
+    this.colocarCheck();
   }
 
 }
