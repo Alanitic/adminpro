@@ -8,6 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class PromesasComponent implements OnInit {
 
   constructor() {
+
+    this.contarHastaTres().then(
+      mensaje => console.log('Terminó', mensaje)
+    ).catch( error => console.error('Error en la promesa', error));
+   }
+
+  ngOnInit() {
+  }
+
+  contarHastaTres() {
     let promesa = new Promise( (resolve, reject) => {
       let contador = 0;
       let intervalo = setInterval( () => {
@@ -19,13 +29,7 @@ export class PromesasComponent implements OnInit {
         }
       }, 1000);
     });
-
-    promesa.then(
-      mensaje => console.log('Terminó', mensaje)
-    ).catch( error => console.error('Error en la promesa', error));
-   }
-
-  ngOnInit() {
+    return promesa;
   }
 
 }
