@@ -39,10 +39,10 @@ export class RxjsComponent implements OnInit, OnDestroy {
 
         observer.next(salida);
 
-        // if (contador === 5) {
-        //   clearInterval(intervalo);
-        //   observer.complete();
-        // }
+        if (contador === 5) {
+          clearInterval(intervalo);
+          observer.complete();
+        }
         // if (contador === 2) {
         //   clearInterval(intervalo);
         //   observer.error('Este es un error');
