@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { retry, map } from 'rxjs/operators';
+import { retry, map, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-rxjs',
@@ -33,7 +33,7 @@ export class RxjsComponent implements OnInit {
 
         observer.next(salida);
 
-        if (contador === 3) {
+        if (contador === 5) {
           clearInterval(intervalo);
           observer.complete();
         }
@@ -42,8 +42,16 @@ export class RxjsComponent implements OnInit {
         //   observer.error('Este es un error');
         // }
       }, 1000);
-    }).pipe(map( resp => resp.valor
-      ));
+    }).pipe( map( resp => resp.valor),
+    filter( ( valor, index ) => {
+      // console.log('Filter', valor, index);
+      if ( (valor % 2) === 1 ) {
+        return true;
+      } else {
+        return false;
+      }
+    })
+    );
 
   }
 
