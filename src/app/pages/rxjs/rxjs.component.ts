@@ -48,7 +48,7 @@ export class RxjsComponent implements OnInit, OnDestroy {
         //   observer.error('Este es un error');
         // }
       }, 1000);
-    }).pipe( map( resp => resp.valor),
+    }).pipe( map( (resp: any) => resp.valor),
     filter( ( valor, index ) => {
       // console.log('Filter', valor, index);
       if ( (valor % 2) === 1 ) {
